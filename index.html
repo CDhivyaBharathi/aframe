@@ -5,15 +5,7 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   </head>
   <body>
-    <!-- 
-      I've added 'embedded' and 'arjs' to activate the webcam
-      and disabled the default 'vr' button.
-    -->
-    <!-- 
-      I've also added the 'renderer' component with 'alpha: true'.
-      This tells A-Frame to make the canvas background transparent,
-      which is the correct way to show the camera feed.
-    -->
+   
     <a-scene 
       embedded 
       arjs='sourceType: webcam; debugUIEnabled: false;' 
@@ -21,30 +13,24 @@
       renderer='antialias: true; alpha: true;'
     >
       
-      <!-- 
-        The 'renderer="alpha: true"' setting above makes this
-        transparent sky redundant, so I have removed it.
-      -->
-
-      <!-- 
-        This is the AR marker. When your camera sees the "Hiro"
-        marker, it will display everything inside this tag.
-      -->
+    
       <a-marker preset='hiro'>
-        <!-- 
-          Your plane is now inside the marker.
-          Its position (0 0 0) is relative to the marker's center.
-        -->
-        <a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" color="#000" static-body></a-plane>
+        
+        <a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" color="#ccc" static-body></a-plane>
+
+          <a-text 
+          value="Hello from AR!" 
+          color="#000" 
+          position="0 0.5 0" 
+          rotation="-90 0 0"
+          scale="1 1 1" 
+          align="center"
+        ></a-text>
       </a-marker>
 
-      <!-- 
-        AR.js needs its own camera.
-      -->
+    
       <a-entity camera></a-entity>
 
-      <!-- Dynamic Objects will be inserted here -->
-      <a-entity id="debris-container"></a-entity>
     </a-scene>
   </body>
 </html>
